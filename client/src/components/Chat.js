@@ -23,7 +23,6 @@ const Chat = ({ socket, username, room }) => {
 
 	useEffect(() => {
 		socket.on('receive_message', data => {
-			console.log(data);
 			setMessageList(list => [...list, data]);
 		});
 	}, [socket]);
@@ -39,7 +38,7 @@ const Chat = ({ socket, username, room }) => {
 						<div
 							className='message'
 							key={index}
-							id={username === messageContent.author ? 'you' : 'other'}
+							id={username === messageContent.author ? 'other' : 'you'}
 						>
 							<div>
 								<div className='message-content'>
